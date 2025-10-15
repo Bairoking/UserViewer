@@ -370,3 +370,105 @@ If the app ever displays user-provided HTML, sanitize or use textContent instead
 
 Performance
 For large lists you might consider rendering only visible items (virtualization). For 10 users from this API, current approach is fine.
+Ìºç Overview: What Happens When You Open the Page
+
+When you open index.html in your browser:
+
+The HTML file loads first and defines the basic structure of the page.
+
+The CSS file is applied to make everything look nice and readable.
+
+The JavaScript file runs last. It fetches user data from the API, adds user names to the page, and handles all the interactivity ‚Äî like showing details when you click a name and letting you go back.
+
+So the three files work together in harmony:
+HTML ‚Üí structure, CSS ‚Üí appearance, JavaScript ‚Üí logic and interactivity.
+
+Ì∑± 1. HTML (index.html) ‚Äî Structure and Framework
+
+This is the skeleton of your web app.
+It tells the browser what elements exist and where content will appear.
+
+Ì¥π What it does
+
+Declares a basic webpage using standard HTML structure.
+
+Includes two key containers:
+
+#userList: where JavaScript will display the list of user names.
+
+#userDetails: where the detailed info of a clicked user will appear.
+
+Links the stylesheet (style.css) for design.
+
+Links the JavaScript file (app.js) that controls the app‚Äôs behavior.
+
+Ì¥π In short
+
+HTML gives the structure ‚Äî like the foundation and walls of a building.
+It doesn‚Äôt decide colors, fonts, or actions. It just says what exists and where.
+
+Ìæ® 2. CSS (style.css) ‚Äî Design and Appearance
+
+This file is the decoration and layout layer of your web app.
+It makes your interface visually appealing and easy to use.
+
+Ì¥π What it does
+
+Styles the page (body, h1) with a pleasant background, font, and centered title.
+
+Styles each user name box in the list with spacing, colors, hover effects, and a ‚Äúselected‚Äù highlight.
+
+Styles the details panel with padding, borders, and a centered card layout.
+
+Defines a .hidden class to hide or show content (controlled by JavaScript).
+
+Styles the Back button with a blue color that changes on hover.
+
+Ì¥π In short
+
+CSS gives the visual design ‚Äî the paint, furniture, and lighting of your building.
+It decides how things look but doesn‚Äôt change what they do.
+
+‚öôÔ∏è 3. JavaScript (app.js) ‚Äî Logic and Interactivity
+
+This is the brain of your web app.
+It controls what happens when the user interacts ‚Äî like fetching data, reacting to clicks, and updating the page dynamically.
+
+Ì¥π What it does
+
+Fetches Data:
+
+Calls the public API https://jsonplaceholder.typicode.com/users.
+
+Retrieves fake user data in JSON format (names, emails, addresses, etc.).
+
+Handles network errors gracefully (shows a message if it fails).
+
+Displays User List:
+
+Creates clickable boxes (divs) for each user name.
+
+Adds them inside the #userList container on the page.
+
+Each box has a click event listener that shows that user‚Äôs full details.
+
+Displays User Details:
+
+When you click a user name:
+
+The list hides.
+
+The details view (#userDetails) shows.
+
+It displays name, email, address, company, etc.
+
+Also adds a ‚ÄúBack to List‚Äù button to return to the user list.
+
+Manages State (selected user):
+
+Keeps track of the currently selected user (selectedUserId) so that when you go back, the same user stays highlighted.
+
+Ì¥π In short
+
+JavaScript provides the logic and interaction ‚Äî the electrical wiring, buttons, and moving parts of your building.
+It decides how things behave and how the app responds to user actions.
